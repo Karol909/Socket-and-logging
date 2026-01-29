@@ -1,0 +1,118 @@
+bytearray(b'data;found dispense position: 31300\xc2\xb5m\r\n'), 14:42:56
+bytearray(b'data;found dispense position: 31355\xc2\xb5m\r\n'), 14:55:54
+bytearray(b'data;found dispense position: 31330\xc2\xb5m\r\n'), 15:09:23
+bytearray(b'data;found dispense position: 31340\xc2\xb5m\r\n'), 15:30:31
+bytearray(b'data;found dispense position: 31400\xc2\xb5m\r\n'), 16:26:51
+bytearray(b'return;home;1\r\n'), 16:50:42
+bytearray(b'return;home;1\r\n'), 16:52:10
+bytearray(b'return;home;1\r\n'), 16:52:16
+bytearray(b'return;home;1\r\n'), 16:53:49
+bytearray(b'data;found dispense position: 31455\xc2\xb5m\r\n'), 16:53:54
+bytearray(b'return;find;5;1;6291\r\n'), 16:53:54
+bytearray(b'return;home;1\r\n'), 16:53:56
+bytearray(b'data;found dispense position: 27165\xc2\xb5m\r\n'), 16:54:00
+bytearray(b'return;find;5;1;5433\r\n'), 16:54:00
+bytearray(b'return;home;1\r\n'), 16:54:02
+bytearray(b'return;home;1\r\n'), 16:54:29
+bytearray(b'data;found dispense position: 32000\xc2\xb5m\r\n'), 16:54:34
+bytearray(b'return;find;5;1;6400\r\n'), 16:54:34
+bytearray(b'return;home;1\r\n'), 16:54:38
+bytearray(b'data;found dispense position: 31325\xc2\xb5m\r\n'), 16:54:42
+bytearray(b'return;find;5;1;6265\r\n'), 16:54:42
+bytearray(b'return;home;1\r\n'), 16:54:46
+bytearray(b'data;found dispense position: 31325\xc2\xb5m\r\n'), 16:54:50
+bytearray(b'return;find;5;1;6265\r\n'), 16:54:50
+bytearray(b'return;home;1\r\n'), 16:54:57
+bytearray(b'data;found dispense position: 31325\xc2\xb5m\r\n'), 16:55:01
+bytearray(b'return;find;5;1;6265\r\n'), 16:55:01
+bytearray(b'return;home;1\r\n'), 16:55:05
+bytearray(b'data;found dispense position: 31325\xc2\xb5m\r\n'), 16:55:09
+bytearray(b'return;find;5;1;6265\r\n'), 16:55:09
+bytearray(b'return;home;1\r\n'), 16:55:13
+bytearray(b'data;found dispense position: 30855\xc2\xb5m\r\n'), 16:55:23
+bytearray(b'return;find;5;3;6171\r\n'), 16:55:23
+bytearray(b'return;home;1\r\n'), 16:55:24
+bytearray(b'data;finding dispense position failed, using default position: 30000\xc2\xb5m\r\nreturn;find;5;3;0\r\n'), 16:55:25
+bytearray(b'return;home;1\r\n'), 16:56:00
+bytearray(b'data;finding dispense position failed, using default position: 30000\xc2\xb5m\r\nreturn;find;5;1;0\r\n'), 16:56:03
+bytearray(b'return;home;1\r\n'), 16:56:08
+bytearray(b'data;finding dispense position failed, using default position: 30000\xc2\xb5m\r\nreturn;find;5;1;0\r\n'), 16:56:11
+bytearray(b'return;home;1\r\n'), 16:56:28
+bytearray(b'data;found dispense position: 31430\xc2\xb5m\r\n'), 16:56:33
+bytearray(b'return;find;5;1;6286\r\n'), 16:56:33
+bytearray(b'return;home;1\r\n'), 16:56:37
+bytearray(b'data;found dispense position: 31410\xc2\xb5m\r\n'), 16:56:41
+bytearray(b'return;find;5;1;6282\r\n'), 16:56:41
+bytearray(b'return;home;1\r\n'), 16:56:45
+bytearray(b'data;found dispense position: 31850\xc2\xb5m\r\n'), 16:56:54
+bytearray(b'return;find;5;3;6370\r\n'), 16:56:54
+bytearray(b'return;home;1\r\n'), 16:56:56
+bytearray(b'data;found dispense position: 31315\xc2\xb5m\r\n'), 16:57:05
+bytearray(b'return;find;5;3;6263\r\n'), 16:57:05
+bytearray(b'return;home;1\r\n'), 16:57:07
+bytearray(b'data;found dispense position: 31350\xc2\xb5m\r\n'), 16:57:22
+bytearray(b'return;find;5;5;6270\r\n'), 16:57:22
+bytearray(b'return;home;1\r\n'), 16:57:23
+bytearray(b'data;found dispense position: 31475\xc2\xb5m\r\n'), 16:57:37
+bytearray(b'return;find;5;5;6295\r\n'), 16:57:37
+bytearray(b'return;home;1\r\n'), 16:58:45
+bytearray(b'data;found dispense position: 31345\xc2\xb5m\r\n'), 16:58:49
+bytearray(b'return;find;5;1;6269\r\n'), 16:58:49
+bytearray(b'return;home;1\r\n'), 16:58:54
+bytearray(b'data;found dispense position: 32055\xc2\xb5m\r\n'), 16:59:03
+bytearray(b'return;find;5;3;6411\r\n'), 16:59:03
+bytearray(b'return;home;1\r\n'), 16:59:07
+bytearray(b'data;found dispense position: 31990\xc2\xb5m\r\n'), 16:59:22
+bytearray(b'return;find;5;5;6398\r\n'), 16:59:22
+bytearray(b'return;home;1\r\n'), 16:59:24
+bytearray(b'data;found dispense position: 31075\xc2\xb5m\r\n'), 16:59:52
+bytearray(b'return;find;5;10;6215\r\n'), 16:59:52
+bytearray(b'return;home;1\r\n'), 16:59:54
+bytearray(b'return;home;1\r\n'), 17:02:23
+bytearray(b'data;found dispense position: 31365\xc2\xb5m\r\n'), 17:02:28
+bytearray(b'return;find;5;1;6273\r\n'), 17:02:28
+bytearray(b'return;home;1\r\n'), 17:02:31
+bytearray(b'data;found dispense position: 31270\xc2\xb5m\r\n'), 17:02:40
+bytearray(b'return;find;5;3;6254\r\n'), 17:02:40
+bytearray(b'return;home;1\r\n'), 17:02:45
+bytearray(b'data;found dispense position: 31630\xc2\xb5m\r\n'), 17:03:00
+bytearray(b'return;find;5;5;6326\r\n'), 17:03:00
+bytearray(b'return;home;1\r\n'), 17:03:05
+bytearray(b'data;found dispense position: 31100\xc2\xb5m\r\n'), 17:03:33
+bytearray(b'return;find;5;10;6220\r\n'), 17:03:33
+bytearray(b'return;home;1\r\n'), 17:03:35
+bytearray(b'return;home;1\r\n'), 17:03:55
+bytearray(b'data;found dispense position: 33175\xc2\xb5m\r\n'), 17:04:00
+bytearray(b'return;find;5;1;6635\r\n'), 17:04:01
+bytearray(b'return;home;1\r\n'), 17:04:04
+bytearray(b'data;found dispense position: 32005\xc2\xb5m\r\n'), 17:04:13
+bytearray(b'return;find;5;3;6401\r\n'), 17:04:13
+bytearray(b'return;home;1\r\n'), 17:04:17
+bytearray(b'data;found dispense position: 31305\xc2\xb5m\r\n'), 17:04:31
+bytearray(b'return;find;5;5;6261\r\n'), 17:04:31
+bytearray(b'return;home;1\r\n'), 17:04:35
+bytearray(b'data;found dispense position: 31370\xc2\xb5m\r\n'), 17:05:03
+bytearray(b'return;find;5;10;6274\r\n'), 17:05:03
+bytearray(b'return;home;1\r\n'), 17:05:12
+bytearray(b'return;home;1\r\n'), 17:05:41
+bytearray(b'data;found dispense position: 26535\xc2\xb5m\r\n'), 17:05:47
+bytearray(b'return;find;5;1;5307\r\n'), 17:05:47
+bytearray(b'return;home;1\r\n'), 17:05:50
+bytearray(b'data;found dispense position: 31575\xc2\xb5m\r\n'), 17:05:59
+bytearray(b'return;find;5;3;6315\r\n'), 17:05:59
+bytearray(b'return;home;1\r\n'), 17:06:03
+bytearray(b'data;found dispense position: 32015\xc2\xb5m\r\n'), 17:06:18
+bytearray(b'return;find;5;5;6403\r\n'), 17:06:18
+bytearray(b'return;home;1\r\n'), 17:06:20
+bytearray(b'data;found dispense position: 31635\xc2\xb5m\r\n'), 17:06:48
+bytearray(b'return;find;5;10;6327\r\n'), 17:06:48
+bytearray(b'return;home;1\r\n'), 17:06:52
+bytearray(b'return;home;1\r\n'), 17:07:27
+bytearray(b'data;found dispense position: 31300\xc2\xb5m\r\n'), 17:07:32
+bytearray(b'return;find;5;1;6260\r\n'), 17:07:32
+bytearray(b'return;home;1\r\n'), 17:07:35
+bytearray(b'data;found dispense position: 32215\xc2\xb5m\r\n'), 17:07:44
+bytearray(b'return;find;5;3;6443\r\n'), 17:07:44
+bytearray(b'return;home;1\r\n'), 17:07:48
+bytearray(b'data;found dispense position: 31850\xc2\xb5m\r\n'), 17:08:03
+bytearray(b'return;find;5;5;6370\r\n'), 17:08:03

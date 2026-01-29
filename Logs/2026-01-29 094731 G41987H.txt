@@ -1,0 +1,10 @@
+bytearray(b'return;home;1\r\n'), 09:47:54
+bytearray(b'data;found dispense position: 30690\xc2\xb5m\r\n'), 09:47:59
+bytearray(b'return;find;10;1;6138\r\n'), 09:47:59
+bytearray(b'return;home;1\r\n'), 09:48:02
+bytearray(b'data;found dispense position: 30690\xc2\xb5m\r\n'), 09:48:06
+bytearray(b'return;find;10;1;6138\r\n'), 09:48:06
+bytearray(b'return;home;1\r\n'), 09:48:08
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:48:12
+bytearray(b'return;find;10;1;6147\r\n'), 09:48:12
+bytearray(b'return;home;1\r\n'), 09:48:15

@@ -1,0 +1,207 @@
+bytearray(b'return;home;1\r\n'), 09:48:45
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:48:50
+bytearray(b'return;find;10;1;6147\r\n'), 09:48:50
+bytearray(b'return;home;1\r\n'), 09:48:53
+bytearray(b'data;found dispense position: 30820\xc2\xb5m\r\n'), 09:48:57
+bytearray(b'return;find;10;1;6164\r\n'), 09:48:57
+bytearray(b'return;home;1\r\n'), 09:48:59
+bytearray(b'data;found dispense position: 30820\xc2\xb5m\r\n'), 09:49:03
+bytearray(b'return;find;10;1;6164\r\n'), 09:49:03
+bytearray(b'return;home;1\r\n'), 09:49:06
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:49:10
+bytearray(b'return;find;10;1;6134\r\n'), 09:49:10
+bytearray(b'return;home;1\r\n'), 09:49:12
+bytearray(b'data;found dispense position: 30910\xc2\xb5m\r\n'), 09:49:16
+bytearray(b'return;find;10;1;6182\r\n'), 09:49:16
+bytearray(b'return;home;1\r\n'), 09:49:19
+bytearray(b'data;found dispense position: 30865\xc2\xb5m\r\n'), 09:49:23
+bytearray(b'return;find;10;1;6173\r\n'), 09:49:23
+bytearray(b'return;home;1\r\n'), 09:49:25
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:49:29
+bytearray(b'return;find;10;1;6134\r\n'), 09:49:29
+bytearray(b'return;home;1\r\n'), 09:49:32
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:49:36
+bytearray(b'return;find;10;1;6134\r\n'), 09:49:36
+bytearray(b'return;home;1\r\n'), 09:49:38
+bytearray(b'data;found dispense position: 30755\xc2\xb5m\r\n'), 09:49:42
+bytearray(b'return;find;10;1;6151\r\n'), 09:49:42
+bytearray(b'return;home;1\r\n'), 09:49:45
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:49:49
+bytearray(b'return;find;10;1;6134\r\n'), 09:49:49
+bytearray(b'return;home;1\r\n'), 09:49:51
+bytearray(b'data;found dispense position: 30865\xc2\xb5m\r\n'), 09:49:55
+bytearray(b'return;find;10;1;6173\r\n'), 09:49:55
+bytearray(b'return;home;1\r\n'), 09:49:58
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:50:02
+bytearray(b'return;find;10;1;6134\r\n'), 09:50:02
+bytearray(b'return;home;1\r\n'), 09:50:04
+bytearray(b'data;found dispense position: 30800\xc2\xb5m\r\n'), 09:50:08
+bytearray(b'return;find;10;1;6160\r\n'), 09:50:08
+bytearray(b'return;home;1\r\n'), 09:50:11
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:50:15
+bytearray(b'return;find;10;1;6143\r\n'), 09:50:15
+bytearray(b'return;home;1\r\n'), 09:50:17
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:50:21
+bytearray(b'return;find;10;1;6143\r\n'), 09:50:21
+bytearray(b'return;home;1\r\n'), 09:50:24
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:50:28
+bytearray(b'return;find;10;1;6147\r\n'), 09:50:28
+bytearray(b'return;home;1\r\n'), 09:50:30
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:50:34
+bytearray(b'return;find;10;1;6134\r\n'), 09:50:34
+bytearray(b'return;home;1\r\n'), 09:50:37
+bytearray(b'data;found dispense position: 30865\xc2\xb5m\r\n'), 09:50:41
+bytearray(b'return;find;10;1;6173\r\n'), 09:50:41
+bytearray(b'return;home;1\r\n'), 09:50:43
+bytearray(b'data;found dispense position: 30755\xc2\xb5m\r\n'), 09:50:47
+bytearray(b'return;find;10;1;6151\r\n'), 09:50:47
+bytearray(b'return;home;1\r\n'), 09:50:50
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:50:54
+bytearray(b'return;find;10;1;6143\r\n'), 09:50:54
+bytearray(b'return;home;1\r\n'), 09:50:56
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:51:00
+bytearray(b'return;find;10;1;6147\r\n'), 09:51:00
+bytearray(b'return;home;1\r\n'), 09:51:03
+bytearray(b'data;found dispense position: 30820\xc2\xb5m\r\n'), 09:51:07
+bytearray(b'return;find;10;1;6164\r\n'), 09:51:07
+bytearray(b'return;home;1\r\n'), 09:51:09
+bytearray(b'data;found dispense position: 30625\xc2\xb5m\r\n'), 09:51:13
+bytearray(b'return;find;10;1;6125\r\n'), 09:51:13
+bytearray(b'return;home;1\r\n'), 09:51:16
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:51:20
+bytearray(b'return;find;10;1;6143\r\n'), 09:51:20
+bytearray(b'return;home;1\r\n'), 09:51:22
+bytearray(b'data;found dispense position: 30625\xc2\xb5m\r\n'), 09:51:26
+bytearray(b'return;find;10;1;6125\r\n'), 09:51:26
+bytearray(b'return;home;1\r\n'), 09:51:29
+bytearray(b'data;found dispense position: 30820\xc2\xb5m\r\n'), 09:51:33
+bytearray(b'return;find;10;1;6164\r\n'), 09:51:33
+bytearray(b'return;home;1\r\n'), 09:51:35
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:51:39
+bytearray(b'return;find;10;1;6134\r\n'), 09:51:39
+bytearray(b'return;home;1\r\n'), 09:51:42
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:51:46
+bytearray(b'return;find;10;1;6143\r\n'), 09:51:46
+bytearray(b'return;home;1\r\n'), 09:51:48
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:51:52
+bytearray(b'return;find;10;1;6143\r\n'), 09:51:52
+bytearray(b'return;home;1\r\n'), 09:51:55
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:51:59
+bytearray(b'return;find;10;1;6134\r\n'), 09:51:59
+bytearray(b'return;home;1\r\n'), 09:52:01
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:52:05
+bytearray(b'return;find;10;1;6134\r\n'), 09:52:05
+bytearray(b'return;home;1\r\n'), 09:52:08
+bytearray(b'data;found dispense position: 30625\xc2\xb5m\r\n'), 09:52:12
+bytearray(b'return;find;10;1;6125\r\n'), 09:52:12
+bytearray(b'return;home;1\r\n'), 09:52:14
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:52:18
+bytearray(b'return;find;10;1;6143\r\n'), 09:52:18
+bytearray(b'return;home;1\r\n'), 09:52:21
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:52:25
+bytearray(b'return;find;10;1;6143\r\n'), 09:52:25
+bytearray(b'return;home;1\r\n'), 09:52:27
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:52:31
+bytearray(b'return;find;10;1;6134\r\n'), 09:52:31
+bytearray(b'return;home;1\r\n'), 09:52:34
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:52:38
+bytearray(b'return;find;10;1;6143\r\n'), 09:52:38
+bytearray(b'return;home;1\r\n'), 09:52:40
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:52:44
+bytearray(b'return;find;10;1;6143\r\n'), 09:52:44
+bytearray(b'return;home;1\r\n'), 09:52:47
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:52:51
+bytearray(b'return;find;10;1;6134\r\n'), 09:52:51
+bytearray(b'return;home;1\r\n'), 09:52:53
+bytearray(b'data;found dispense position: 30755\xc2\xb5m\r\n'), 09:52:57
+bytearray(b'return;find;10;1;6151\r\n'), 09:52:57
+bytearray(b'return;home;1\r\n'), 09:53:00
+bytearray(b'data;found dispense position: 30780\xc2\xb5m\r\n'), 09:53:04
+bytearray(b'return;find;10;1;6156\r\n'), 09:53:04
+bytearray(b'return;home;1\r\n'), 09:53:06
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:53:10
+bytearray(b'return;find;10;1;6134\r\n'), 09:53:10
+bytearray(b'return;home;1\r\n'), 09:53:13
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:53:17
+bytearray(b'return;find;10;1;6147\r\n'), 09:53:17
+bytearray(b'return;home;1\r\n'), 09:53:19
+bytearray(b'data;found dispense position: 30820\xc2\xb5m\r\n'), 09:53:23
+bytearray(b'return;find;10;1;6164\r\n'), 09:53:23
+bytearray(b'return;home;1\r\n'), 09:53:26
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:53:30
+bytearray(b'return;find;10;1;6134\r\n'), 09:53:30
+bytearray(b'return;home;1\r\n'), 09:53:32
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:53:36
+bytearray(b'return;find;10;1;6147\r\n'), 09:53:36
+bytearray(b'return;home;1\r\n'), 09:53:39
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:53:43
+bytearray(b'return;find;10;1;6134\r\n'), 09:53:43
+bytearray(b'return;home;1\r\n'), 09:53:45
+bytearray(b'data;found dispense position: 30755\xc2\xb5m\r\n'), 09:53:49
+bytearray(b'return;find;10;1;6151\r\n'), 09:53:49
+bytearray(b'return;home;1\r\n'), 09:53:52
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:53:56
+bytearray(b'return;find;10;1;6143\r\n'), 09:53:56
+bytearray(b'return;home;1\r\n'), 09:53:58
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:54:02
+bytearray(b'return;find;10;1;6143\r\n'), 09:54:02
+bytearray(b'return;home;1\r\n'), 09:54:05
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:54:09
+bytearray(b'return;find;10;1;6143\r\n'), 09:54:09
+bytearray(b'return;home;1\r\n'), 09:54:11
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:54:15
+bytearray(b'return;find;10;1;6134\r\n'), 09:54:15
+bytearray(b'return;home;1\r\n'), 09:54:18
+bytearray(b'data;found dispense position: 30800\xc2\xb5m\r\n'), 09:54:22
+bytearray(b'return;find;10;1;6160\r\n'), 09:54:22
+bytearray(b'return;home;1\r\n'), 09:54:24
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:54:28
+bytearray(b'return;find;10;1;6134\r\n'), 09:54:28
+bytearray(b'return;home;1\r\n'), 09:54:31
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:54:35
+bytearray(b'return;find;10;1;6143\r\n'), 09:54:35
+bytearray(b'return;home;1\r\n'), 09:54:37
+bytearray(b'data;found dispense position: 30735\xc2\xb5m\r\n'), 09:54:41
+bytearray(b'return;find;10;1;6147\r\n'), 09:54:41
+bytearray(b'return;home;1\r\n'), 09:54:44
+bytearray(b'data;found dispense position: 30670\xc2\xb5m\r\n'), 09:54:48
+bytearray(b'return;find;10;1;6134\r\n'), 09:54:48
+bytearray(b'return;home;1\r\n'), 09:54:50
+bytearray(b'data;found dispense position: 30800\xc2\xb5m\r\n'), 09:54:54
+bytearray(b'return;find;10;1;6160\r\n'), 09:54:54
+bytearray(b'return;home;1\r\n'), 09:54:57
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:55:01
+bytearray(b'return;find;10;1;6143\r\n'), 09:55:01
+bytearray(b'return;home;1\r\n'), 09:55:03
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:55:07
+bytearray(b'return;find;10;1;6143\r\n'), 09:55:07
+bytearray(b'return;home;1\r\n'), 09:55:10
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:55:14
+bytearray(b'return;find;10;1;6143\r\n'), 09:55:14
+bytearray(b'return;home;1\r\n'), 09:55:16
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:55:20
+bytearray(b'return;find;10;1;6143\r\n'), 09:55:20
+bytearray(b'return;home;1\r\n'), 09:55:23
+bytearray(b'data;found dispense position: 30755\xc2\xb5m\r\n'), 09:55:27
+bytearray(b'return;find;10;1;6151\r\n'), 09:55:27
+bytearray(b'return;home;1\r\n'), 09:55:29
+bytearray(b'data;found dispense position: 30820\xc2\xb5m\r\n'), 09:55:33
+bytearray(b'return;find;10;1;6164\r\n'), 09:55:33
+bytearray(b'return;home;1\r\n'), 09:55:36
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:55:40
+bytearray(b'return;find;10;1;6143\r\n'), 09:55:40
+bytearray(b'return;home;1\r\n'), 09:55:42
+bytearray(b'data;found dispense position: 30625\xc2\xb5m\r\n'), 09:55:46
+bytearray(b'return;find;10;1;6125\r\n'), 09:55:46
+bytearray(b'return;home;1\r\n'), 09:55:49
+bytearray(b'data;found dispense position: 30755\xc2\xb5m\r\n'), 09:55:53
+bytearray(b'return;find;10;1;6151\r\n'), 09:55:53
+bytearray(b'return;home;1\r\n'), 09:55:55
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:55:59
+bytearray(b'return;find;10;1;6143\r\n'), 09:55:59
+bytearray(b'return;home;1\r\n'), 09:56:02
+bytearray(b'data;found dispense position: 30780\xc2\xb5m\r\n'), 09:56:06
+bytearray(b'return;find;10;1;6156\r\n'), 09:56:06
+bytearray(b'return;home;1\r\n'), 09:56:08
+bytearray(b'data;found dispense position: 30715\xc2\xb5m\r\n'), 09:56:12
+bytearray(b'return;find;10;1;6143\r\n'), 09:56:12
