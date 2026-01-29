@@ -8,13 +8,14 @@ ROBOT_IP = "192.168.0.64"
 PORT = 20001
 
 pipette = "I23670J"
-volume = "10%"
+maxvolume = 5000
+volume = 10 #In percents
 
 log_path_folder = Path("Logs")
 
 log_path_folder.mkdir(parents=True, exist_ok=True)
 
-txt_file_name = datetime.datetime.now().strftime("%Y-%m-%d %H%M%S") + f" {pipette}_{volume}.txt"
+txt_file_name = datetime.datetime.now().strftime("%Y-%m-%d %H%M%S") + f" {pipette}_{maxvolume}uL_{volume}.txt"
 
 log_path = (log_path_folder / txt_file_name)
 
