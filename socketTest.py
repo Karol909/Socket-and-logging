@@ -7,8 +7,8 @@ from pathlib import Path
 ROBOT_IP = "192.168.0.64"
 PORT = 20001
 
-pipette = "P22795J"
-maxvolume = 1000
+pipette = "G25687K overnight"
+maxvolume = 200
 volume = 100 #In percents
 
 log_path_folder = Path("Logs")

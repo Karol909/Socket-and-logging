@@ -46,7 +46,7 @@ for key, y in groups.items():
     mean_y = np.mean(y)
     spread = max(y) - min(y)
     label = f"{key[0]}, {key[1]}, {key[2]}, mean = {mean_y}, spread = {(spread*5/1000)} mm"
-    plt.plot(x, y, marker="o",markersize=4, linestyle='-', label=label)
+    plt.plot(x, y, marker="o",markersize=4, linestyle='', label=label)
 
 plt.xlabel("Sample index (per group)")
 plt.ylabel("Value")
