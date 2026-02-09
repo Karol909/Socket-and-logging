@@ -7,15 +7,11 @@ from pathlib import Path
 ROBOT_IP = "192.168.0.64"
 PORT = 20001
 
-pipette = "G25687K overnight"
-maxvolume = 200
-volume = 100 #In percents
+log_name = "G25687K_100ul_100%"
 
 log_path_folder = Path("Logs")
-
 log_path_folder.mkdir(parents=True, exist_ok=True)
-
-txt_file_name = datetime.datetime.now().strftime("%Y-%m-%d %H%M%S") + f" {pipette}_{maxvolume}uL_{volume}%.txt"
+txt_file_name = datetime.datetime.now().strftime("%Y-%m-%d %H%M%S") + f" {log_name}.txt"
 
 log_path = (log_path_folder / txt_file_name)
 
@@ -34,47 +30,34 @@ def connect():
             time.sleep(1)
 
 s = connect()
+s.settimeout(.1)
 
 data = bytearray()
 while True:
     try:
         r = s.recv(4096)
+        t_recv = time.time()
         if not r:
             print("Connection closed by robot")
             raise ConnectionError()
-        print(f"received {len(r)} bytes", r)
+        if len(data) == 0:
+            print(f"New data incoming", end="", flush=True)
+        else:
+            print(f".", end="", flush=True)
         data.extend(r)
-        if data[-1] == b'\n'[0]:
-            # print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S  ")+f"Received bytes ({len(data)}, {len(str(data).split(';'))-2}):", data)
-            # if 
+    except socket.timeout:
+        if len(data) > 0:
+            print()
+            print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S  ")+f"Received {len(data)} bytes:")
+            msg = data.decode("utf-8")
+            if "buffer (" in msg:
+                i0 = msg.index("buffer (")
+                msg = msg[:i0+30] + " ... " + msg[i0+msg[i0:].index(")")-30:]
+            print(msg)
             with open(log_path, "a", encoding="utf-8") as f:
                 f.write(str(data) + ", " + datetime.datetime.now().strftime("%H:%M:%S") + "\n")
-            # message = str(data).strip().split(';')
-
-            # message.pop(0)
-
-            # for msg in message:
-            #     msg.strip()
-            # print(message[0])
-            # submessages = str(message).strip().split(' ')
-            # if message[0] == "find":
-            #     position = message[-1][:4]
-            #     print("Position found - " + position)
-            #     with open(log_path, "a", encoding="utf-8") as f:
-            #         f.write(position + ", " + datetime.datetime.now().strftime("%H:%M:%S") + "\n")
-            # elif submessages[0][2:] == "found":
-            #     position = submessages[3][:5]
-            #     print("Position found um - " + position)
-            #     with open(log_path, "a", encoding="utf-8") as f:
-            #         f.write(position + ", " + datetime.datetime.now().strftime("%H:%M:%S") + "\n")
-
-            
-            
             data = bytearray()
 
-
-    except socket.timeout:
-        pass
     except Exception as e:
         print("Connection error, reconnecting...", e)
         s.close()
