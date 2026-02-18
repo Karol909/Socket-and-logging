@@ -8,7 +8,7 @@ from collections import defaultdict
 
 list_of_files = glob.glob("Logs/*") # * means all if need specific format then *.csv
 
-desired_file = sorted(list_of_files)[-1]
+desired_file = sorted(list_of_files)[-2]
 latest_file = max(list_of_files, key=os.path.getctime)
 
 with open(desired_file) as f:

@@ -7,9 +7,9 @@ from pathlib import Path
 ROBOT_IP = "192.168.0.64"
 PORT = 20001
 
-log_name = "G25687K_100ul_100%"
+log_name = "SMT8"
 
-log_path_folder = Path("Logs")
+log_path_folder = Path("Pipette tests logs (1500 speed first measurement discarded)")
 log_path_folder.mkdir(parents=True, exist_ok=True)
 txt_file_name = datetime.datetime.now().strftime("%Y-%m-%d %H%M%S") + f" {log_name}.txt"
 
@@ -50,9 +50,10 @@ while True:
             print()
             print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S  ")+f"Received {len(data)} bytes:")
             msg = data.decode("utf-8")
-            if "buffer (" in msg:
-                i0 = msg.index("buffer (")
-                msg = msg[:i0+30] + " ... " + msg[i0+msg[i0:].index(")")-30:]
+            # if "buffer (" in msg:
+            #     i0 = msg.index("buffer (")
+            #     print("TEST", i0, msg)
+            #     msg = msg[:i0+30] + " ... " + msg[i0+msg[i0:].index(")")-30:]
             print(msg)
             with open(log_path, "a", encoding="utf-8") as f:
                 f.write(str(data) + ", " + datetime.datetime.now().strftime("%H:%M:%S") + "\n")

@@ -1,0 +1,17 @@
+bytearray(b'STEPPER: Moving to mstep: 2400 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:41:29
+bytearray(b'STEPPER: Moved 1600.00 msteps in 573.316 ms -> speed [msteps/sec]: 2790.78\r\n'), 13:41:29
+bytearray(b'STEPPER: Moving to mstep: 3033 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:41:39
+bytearray(b'STEPPER: Moving to mstep: 2400 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:41:48
+bytearray(b'STEPPER: Moving to mstep: 3033 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:41:50
+bytearray(b'received from UR: set;blow;34000 -> set (2,0)\r\nreturn;set;blow;34000;1\r\nreceived from UR: s -> s (0,1)\r\n*** STATUS ***\r\nstep      :      3033 steps\r\nspeed     :      1000 msteps/s\r\ndefault   :     12000 \xc2\xb5m\r\ndispense  :     15165 \xc2\xb5m\r\nblowout   :     34000 \xc2\xb5m\r\nur0       :         0 -\r\nur1       :         0 -\r\nreturn;s;3033\r\n'), 13:42:49
+bytearray(b'received from UR: s -> s (0,1)\r\n*** STATUS ***\r\nstep      :      3033 steps\r\nspeed     :      1000 msteps/s\r\ndefault   :     12000 \xc2\xb5m\r\ndispense  :     15165 \xc2\xb5m\r\nblowout   :     34000 \xc2\xb5m\r\nur0       :         0 -\r\nur1       :         0 -\r\nreturn;s;3033\r\n'), 13:43:03
+bytearray(b'Smart driver up and ready!\r\nNormal speed loaded from EEPROM: [mstep/sec] 1000\r\nSTEPPER: Moving to mstep: 3033 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:43:40
+bytearray(b'received from UR: s -> s (0,1)\r\n*** STATUS ***\r\nstep      :      3033 steps\r\nspeed     :      1000 msteps/s\r\ndefault   :     12000 \xc2\xb5m\r\ndispense  :     15165 \xc2\xb5m\r\nblowout   :     34000 \xc2\xb5m\r\nur0       :         0 -\r\nur1       :         0 -\r\nreturn;s;3033\r\n'), 13:43:44
+bytearray(b'received from UR: f;40;5 -> f (2,1)\r\nSTEPPER: Moving to mstep: 4800 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:44:06
+bytearray(b'STEPPER: Moving to mstep: 6800 with speed [msteps/sec]: 1000 in StealthChop.\r\nSTEPPER: Aborted because of stall or buffer limit!\r\nFinding dispense position failed, using default position: [\xc2\xb5m] 15165\r\nreturn;f;40;5;0\r\n'), 13:44:08
+bytearray(b'STEPPER: Moving to mstep: 6800 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:44:15
+bytearray(b'STEPPER: Moving to mstep: 0 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:44:17
+bytearray(b'STEPPER: Moved 6800.00 msteps in 2006.328 ms -> speed [msteps/sec]: 3389.28\r\n'), 13:44:19
+bytearray(b'STEPPER: Moving to mstep: -2147483648 with speed [msteps/sec]: 2000 in StealthChop.\r\nSTEPPER: Moving to mstep: 100 with speed [msteps/sec]: 2000 in StealthChop.\r\n'), 13:44:20
+bytearray(b'received from UR: f;40;5 -> f (2,1)\r\nSTEPPER: Moving to mstep: 4800 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:44:32
+bytearray(b'STEPPER: Moved 4800.00 msteps in 1456.336 ms -> speed [msteps/sec]: 3295.94\r\nSTEPPER: Moving to mstep: 6800 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:44:34
