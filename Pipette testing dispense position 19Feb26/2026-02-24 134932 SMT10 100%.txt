@@ -1,0 +1,9 @@
+bytearray(b'oving to mstep: 0 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:49:32
+bytearray(b'STEPPER: Moved 6772.00 msteps in 1998.616 ms -> speed [msteps/sec]: 3388.34\r\nreturn;home;1\r\n'), 13:49:34
+bytearray(b'received from UR: f;40;10 -> f (2,1)\r\nSTEPPER: Moving to mstep: 4800 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:49:35
+bytearray(b'STEPPER: Moved 4800.00 msteps in 1456.332 ms -> speed [msteps/sec]: 3295.95\r\nSTEPPER: Moving to mstep: 6800 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:49:36
+bytearray(b'STEPPER: Aborted because of stall or buffer limit!\r\nFinding dispense position failed, using default position: [\xc2\xb5m] 15165\r\nreturn;f;40;10;0\r\nreceived from UR: home -> home (0,1)\r\nSTEPPER: Moving to mstep: 0 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:49:38
+bytearray(b'STEPPER: Moved 6755.00 msteps in 1993.928 ms -> speed [msteps/sec]: 3387.79\r\nreturn;home;1\r\n'), 13:49:40
+bytearray(b'received from UR: f;40;10 -> f (2,1)\r\nSTEPPER: Moving to mstep: 4800 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:49:41
+bytearray(b'STEPPER: Moved 4800.00 msteps in 1456.332 ms -> speed [msteps/sec]: 3295.95\r\nSTEPPER: Moving to mstep: 6800 with speed [msteps/sec]: 1000 in StealthChop.\r\n'), 13:49:43
+bytearray(b'STEPPER: Aborted because of stall or buffer limit!\r\nFinding dispense position failed, using default position: [\xc2\xb5m] 15165\r\nreturn;f;40;10;0\r\nreceived from UR: home -> home (0,1)\r\nSTEPPER: Moving to mstep: 0 with speed [msteps/sec]: 4000 in SpreadCycle.\r\n'), 13:49:45
