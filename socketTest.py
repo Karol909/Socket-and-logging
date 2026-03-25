@@ -8,7 +8,7 @@ from pathlib import Path
 ROBOT_IP = "192.168.0.64"
 PORT = 20001
 
-log_name = "SMT3 calibration"
+log_name = "SMT6 calibration"
 
 log_path_folder = Path("Pipette calibrations 25 Feb 2026")
 log_path_folder.mkdir(parents=True, exist_ok=True)

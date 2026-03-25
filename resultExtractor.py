@@ -5,12 +5,25 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+certificateFolder = "CertificatesJette1"
+pathToFolder = rf"c:\Users\KarolChudzicki\Desktop\Socket and logging\{certificateFolder}"
 
-pathToFolder = r"c:\Users\KarolChudzicki\Desktop\Socket and logging\Certificates"
+
 
 results = []
 
-for file in os.listdir(pathToFolder):
+pdf_files = [f for f in os.listdir(pathToFolder) if f.endswith(".pdf")]
+
+# Sort by SMT number
+def extract_smt_number(filename):
+    match = re.search(r"SMT(\d+)", filename)
+    return int(match.group(1)) if match else float('inf')  # put unknown SMTs at the end
+
+pdf_files_sorted = sorted(pdf_files, key=extract_smt_number)
+
+print(pdf_files_sorted)
+
+for file in pdf_files_sorted:
     if file.endswith(".pdf"):
         
         full_path = os.path.join(pathToFolder, file)
@@ -54,87 +67,47 @@ for file in os.listdir(pathToFolder):
 df = pd.DataFrame(results, columns=["File", "Page", "Type", "Value", "Test Volume"])
 
 
-# --------- EXPORT TO EXCEL ----------
-output_path = pathToFolder + r"\extracted_results.xlsx"
-df.to_excel(output_path, index=False)
-
-
-print(df)
-
-
-
-
-
-
-
-
-
-# Ensure numeric values
+# Ensure numeric types
 df["Value"] = pd.to_numeric(df["Value"], errors="coerce")
 df["Test Volume"] = pd.to_numeric(df["Test Volume"], errors="coerce")
 
-# Extract Pipette names reliably from File
-df["Pipette"] = df["File"].str.extract(r"(SMT\d+)")
-df = df.dropna(subset=["Pipette"])  # drop rows without valid SMT
+# Extract SMT from filename
+df["SMT"] = df["File"].str.extract(r"(SMT\d+)")
 
-# Sort pipettes numerically
-xaxis = sorted(df["Pipette"].unique(), key=lambda x: int(x[3:]))
+# Drop rows without SMT (if any)
+df = df.dropna(subset=["SMT"])
 
-# Volumes
-volumes = [100, 50, 10]
+# Pivot table to get Inaccuracy and Imprecision in columns
+pivot = df.pivot_table(
+    index=["SMT", "Test Volume"],
+    columns="Type",
+    values="Value",
+    aggfunc="mean"  # average if multiple values
+).reset_index()
 
-# Pivot table with multiple rows per Pipette+Volume summed as mean if duplicates exist
-pivot = df.pivot_table(index=["Pipette", "Test Volume"], columns="Type", values="Value", aggfunc="mean")
+# Optional: sort by SMT number and then volume descending
+pivot["SMT_num"] = pivot["SMT"].str.extract(r"SMT(\d+)").astype(int)
+pivot = pivot.sort_values(by=["SMT_num", "Test Volume"], ascending=[True, False])
+pivot = pivot.drop(columns="SMT_num")
 
-# ---------------- FIGURE 1: INACCURACY ----------------
-fig1, axes = plt.subplots(1, 3, figsize=(20, 8), sharey=True)
+# Convert to list of lists (like dataJette1)
+dataJette1 = pivot.values.tolist()
 
-for ax, volume in zip(axes, volumes):
-    y_values = []
-    for pipette in xaxis:
-        try:
-            y_values.append(pivot.loc[(pipette, volume), "Inaccuracy"])
-        except KeyError:
-            y_values.append(np.nan)
-    
-    for i, val in enumerate(y_values):
-        if np.isnan(val):
-            ax.plot(xaxis[i], 0, marker="o", color="none")
-        else:
-            ax.plot(xaxis[i], val, marker="o", color="blue")
-    
-    ax.set_title(f"{volume} %", fontsize=18)
-    ax.set_xlabel("Pipette", fontsize=16)
-    ax.axhline(0, color="gray", linestyle="--", alpha=0.7)
-    ax.grid(True, linestyle=":", alpha=0.7)
-    ax.tick_params(axis="both", labelsize=14)
 
-axes[0].set_ylabel("Inaccuracy (d)", fontsize=16)
-plt.tight_layout()
+extracted_results_path = os.path.join(pathToFolder, f"extracted_{certificateFolder}.txt")
+with open(extracted_results_path, "w") as f:
+    f.write("[\n")
+    volume = [100, 50, 10]
+    i = 0
+    for row in dataJette1:
+        # Format numbers to 5 decimal places like your example
+        row_str = f'["{row[0]}", {volume[i%3]}, {row[3]:.5f}, {row[2]:.5f}],\n'
+        f.write(row_str)
+        i += 1
+    f.write("]\n")
 
-# ---------------- FIGURE 2: IMPRECISION ----------------
-fig2, axes = plt.subplots(1, 3, figsize=(20, 8), sharey=True)
 
-for ax, volume in zip(axes, volumes):
-    y_values = []
-    for pipette in xaxis:
-        try:
-            y_values.append(pivot.loc[(pipette, volume), "Imprecision"])
-        except KeyError:
-            y_values.append(np.nan)
-    
-    for i, val in enumerate(y_values):
-        if np.isnan(val):
-            ax.plot(xaxis[i], 0, marker="o", color="none")
-        else:
-            ax.plot(xaxis[i], val, marker="o", color="green")
-    
-    ax.set_title(f"{volume} %", fontsize=18)
-    ax.set_xlabel("Pipette", fontsize=16)
-    ax.axhline(0, color="gray", linestyle="--", alpha=0.7)
-    ax.grid(True, linestyle=":", alpha=0.7)
-    ax.tick_params(axis="both", labelsize=14)
 
-axes[0].set_ylabel("Imprecision (CV)", fontsize=16)
-plt.tight_layout()
-plt.show()
+
+
+
