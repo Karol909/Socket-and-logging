@@ -184,7 +184,7 @@ def analyse_folder(folder_path):
 
 
 if __name__ == "__main__":
-    folder = './Pipette testing dispense position 19Feb26'
+    folder = './Clean data dispense position testing 1/Tool full logs'
     data = analyse_folder(folder)
     
     fig, axs = plt.subplots(3,1, sharex=True)
