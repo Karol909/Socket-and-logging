@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # 🔹 CHANGE THIS TO YOUR FOLDER
-folder_path = r"c:\Users\KarolChudzicki\Desktop\Socket and logging\Pipette dispense positions"
+folder_path = r"Pipette dispense positions"
 
 data = []
 
