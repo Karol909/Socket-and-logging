@@ -197,7 +197,7 @@ def analyse_folder(folder_path):
 
 
 if __name__ == "__main__":
-    folder = './Clean data dispense position testing TOOL 1/Tool full logs'
+    folder = './Clean data dispense position testing TOOL 4/Tool full logs'
     data = analyse_folder(folder)
     
     fig, axs = plt.subplots(3,1, sharex=True)
@@ -263,7 +263,7 @@ if __name__ == "__main__":
     # plt.show()
     # exit()
 
-    path = './Clean data dispense position testing TOOL 1/Tool full logs/2026-02-19 120507 SMT1 100%.txt'
+    path = './Clean data dispense position testing TOOL 4/Tool full logs/2026-04-22 111403 SMT3_rack_0_volume100%.txt'
     sg = extract_sg_buffer(path)
     fig, ax = plt.subplots(1,1)
     estimates, means = analyse_sg_buffer(sg, ax)
