@@ -184,7 +184,7 @@ def analyse_folder(folder_path):
 
 
 if __name__ == "__main__":
-    folder = './Clean data dispense position testing 1/Tool full logs'
+    folder = './Clean data dispense position testing TOOL 4/Tool full logs'
     data = analyse_folder(folder)
     
     fig, axs = plt.subplots(3,1, sharex=True)
@@ -248,30 +248,30 @@ if __name__ == "__main__":
     # exit()
 
     # path = './Pipette tests logs (1500 speed first measurement discarded)/2026-02-19 120507 SMT1 100%.txt'
-    path = './Pipette testing dispense position 19Feb26/2026-02-24 114639 SMT8 10%.txt'
-    sg = extract_sg_buffer(path)
-    fig, ax = plt.subplots(1,1)
-    estimates = analyse_sg_buffer(sg, ax)
+    # path = './Clean data dispense position testing TOOL 4/Tool full logs/2026-02-24 114639 SMT8 10%.txt'
+    # sg = extract_sg_buffer(path)
+    # fig, ax = plt.subplots(1,1)
+    # estimates = analyse_sg_buffer(sg, ax)
 
-    # Summarize estimates to means
-    mean = []
-    last_iteration = 0
-    sum1 = 0
-    cnt = 0
-    for i, (iteration, step) in enumerate(estimates[:,1:3]):
-        if iteration - last_iteration != 1:
-            if last_iteration != 10 or cnt != 10:
-                print(f'Incomplete series at {i}')
-            else:
-                mean.append(sum1//cnt)
-            sum1 = 0
-            cnt = 0
-        last_iteration = iteration
-        sum1 += step
-        cnt += 1
-    mean = np.array(mean)
+    # # Summarize estimates to means
+    # mean = []
+    # last_iteration = 0
+    # sum1 = 0
+    # cnt = 0
+    # for i, (iteration, step) in enumerate(estimates[:,1:3]):
+    #     if iteration - last_iteration != 1:
+    #         if last_iteration != 10 or cnt != 10:
+    #             print(f'Incomplete series at {i}')
+    #         else:
+    #             mean.append(sum1//cnt)
+    #         sum1 = 0
+    #         cnt = 0
+    #     last_iteration = iteration
+    #     sum1 += step
+    #     cnt += 1
+    # mean = np.array(mean)
 
-    # Convert to dispense positions
-    dispense_pos = (mean - 20) * 1000 * 0.01 / 2
+    # # Convert to dispense positions
+    # dispense_pos = (mean - 20) * 1000 * 0.01 / 2
 
     plt.show()
