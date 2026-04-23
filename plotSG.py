@@ -42,6 +42,18 @@ def pressurePointFromBuffer(sg_buffer, window=40):
             max_diff_idx = idx
     return max_diff_idx
 
+def clean_log(file_path, out_path=None):
+    timestamp_re = re.compile(r"(\d{2}:\d{2}:\d{2})")
+    with open(file_path, "r") as f:
+        content = f.read()
+    content = content.replace("\n","").replace("\r","").replace("bytearray(b'","").replace("'), ", "").replace("\\r\\n","\n")
+    content = content.replace("\\xc2\\xb5","µ")
+    content = timestamp_re.sub("", content) # remove all timestamps
+    if out_path is not None:
+        with open(out_path, 'w', encoding="utf-8") as f:
+            f.write(content)
+    return content
+
 def extract_sg_buffer(file_path):
     results = []
 
@@ -50,9 +62,7 @@ def extract_sg_buffer(file_path):
     pair_re = re.compile(r"(\d+),(\d+)")
     size_re = re.compile(r"of size (\d+)")
 
-    with open(file_path, "r") as f:
-        content = f.read()
-    content = content.replace("\n","").replace("\r","").replace("bytearray(b'","").replace("'), ", "")
+    content = clean_log(file_path).replace("\n","")
     
     loop_idx = 0
     last_estimate = 0
@@ -70,16 +80,6 @@ def extract_sg_buffer(file_path):
             loop_idx+=1
         last_estimate = estimate_no
 
-        # Extract first timestamp
-        timestamp = timestamp_re.search(estimate)
-        if timestamp is None:
-            print(f'No timestamp found for estimate {estimate_no} in file: {file_path}')
-            continue
-        timestamp = timestamp.group(1)
-        estimate = timestamp_re.sub("", estimate) # remove all timestamps
-        h, m, s = map(int, timestamp.split(':'))
-        time_in_seconds = h*3600 + m*60 + s
-
         # Cut off end
         end_idx = estimate.find("of size ")
         if end_idx < 0:
@@ -89,7 +89,7 @@ def extract_sg_buffer(file_path):
 
         # Extract buffer pairs
         pairs = pair_re.findall(estimate)
-        buffer = [(int(a), int(b), estimate_no, loop_idx, time_in_seconds) for a, b in pairs]
+        buffer = [(int(a), int(b), estimate_no, loop_idx) for a, b in pairs]
         
         # Check buffer size
         size_match = size_re.search(estimate)
@@ -103,29 +103,36 @@ def extract_sg_buffer(file_path):
     return np.array(results)
 
 def analyse_sg_buffer(sg, ax=None):
-    sg_groups = np.unique(sg[:,4])
+    loop_numbers = np.unique(sg[:,3])
 
     # Get sg values, estimates and means before and after
     estimates = []
     colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
     color_idx = 0
-    for i, sg_group in enumerate(sg_groups):
-        sg_i = sg[sg[:,4]==sg_group]
-        iteration = sg_i[0,2]
-        sg_loop = sg_i[0,3]
-        if iteration == 1:
-            color = colors[color_idx]
-            color_idx = (color_idx + 1) % len(colors)
-        if ax is not None:
-            ax.plot(sg_i[:,0], sg_i[:,1], '.-', color=color, alpha=0.2)
-        estimate_idx = pressurePointFromBuffer(sg_i[:,1])
-        sg_before = sg_i[:estimate_idx,1]
-        sg_after  = sg_i[estimate_idx:,1]
-        estimates.append([sg_loop, iteration, sg_i[estimate_idx,0], np.mean(sg_before), np.mean(sg_after), np.var(sg_before), np.var(sg_after)])
+    for loop_no in loop_numbers:
+        sg_i = sg[sg[:,3]==loop_no]
+        for estimate_no in np.unique(sg_i[:,2]):
+            sg_e = sg_i[sg_i[:,2] == estimate_no]
+            if estimate_no == 1:
+                color = colors[color_idx]
+                color_idx = (color_idx + 1) % len(colors)
+            if ax is not None:
+                ax.plot(sg_e[:,0], sg_e[:,1], '.-', color=color, alpha=0.2)
+            estimate_idx = pressurePointFromBuffer(sg_e[:,1])
+            sg_before = sg_e[:estimate_idx,1]
+            sg_after  = sg_e[estimate_idx:,1]
+            estimates.append([loop_no, estimate_no, sg_e[estimate_idx,0], np.mean(sg_before), np.mean(sg_after), np.var(sg_before), np.var(sg_after)])
     estimates = np.array(estimates)
 
+    # Calc means
+    means = []
+    for loop_no in loop_numbers:
+        est = estimates[estimates[:,0] == loop_no]
+        means.append(list(est.mean(axis=0)) + [len(est)])
+    means = np.array(means)
+
     if ax is None:
-        return estimates
+        return estimates, means
     
     # Add max and min lines
     est_max = np.max(estimates[:,2])
@@ -146,16 +153,22 @@ def analyse_sg_buffer(sg, ax=None):
     ax.fill_between((est_max, np.max(sg[:,0])), mean_after_max + std_after_min, mean_after_min + std_after_max, color='b', alpha=0.5, zorder=9)
     ax.fill_between((est_max, np.max(sg[:,0])), mean_after_min - std_after_min, mean_after_max - std_after_max, color='b', alpha=0.5, zorder=9)
     
+    # Add title
+    ax.set_title(f'Point Finding Results: {(means[:,2].mean() - 20) * 1000 * 0.01 / 2:.2f}µm')
+    ax.set_ylabel('SG value')
+    ax.set_xlabel('mstep')
+    ax.grid()
+
     # Add text
     ax.text(
-        0.75, 0.95, f"n: {len(sg_groups)}\nmean: {np.mean(estimates[:,2]):.1f}\nmax-min: {est_max-est_min}",
+        0.75, 0.95, f"n: {len(loop_numbers)}\nmean: {np.mean(estimates[:,2]):.1f}\nmax-min: {est_max-est_min:.0f}",
         transform=ax.transAxes,
         fontsize=12,
         verticalalignment='top',
         bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.8)
     )
 
-    return estimates
+    return estimates, means
 
 def analyse_folder(folder_path):
     data = []
@@ -174,7 +187,7 @@ def analyse_folder(folder_path):
         if len(sg) == 0:
             print(f'Empty file {filename}')
             continue
-        est = analyse_sg_buffer(sg)
+        est, _ = analyse_sg_buffer(sg)
         for loop in np.unique(est[:,0]):
             # print(id, vol, loop, est[est[:,0]==loop][:,2])
             d = est[est[:,0]==loop]
@@ -184,7 +197,7 @@ def analyse_folder(folder_path):
 
 
 if __name__ == "__main__":
-    folder = './Clean data dispense position testing 1/Tool full logs'
+    folder = './Clean data dispense position testing TOOL 1/Tool full logs'
     data = analyse_folder(folder)
     
     fig, axs = plt.subplots(3,1, sharex=True)
@@ -194,6 +207,9 @@ if __name__ == "__main__":
         for vol in np.sort(np.unique(d[:,1])):
             i = 0 if vol == 100 else 1 if vol == 50 else 2
             dvol = d[d[:,1] == vol]
+            num_estimates = len(dvol)
+            if num_estimates != 10:
+                print(f'id:{id:.0f}, vol:{vol:.0f}: does not have 10 loops: {num_estimates:.0f}')
             # print(id, vol , dvol[:,3])
             ax = axs[0]
             ax.scatter([pos-0.2+i*0.2]*len(dvol), (dvol[:,3] - 20) * 1000 * 0.01 / 2, marker="o", s=40,
@@ -247,31 +263,9 @@ if __name__ == "__main__":
     # plt.show()
     # exit()
 
-    # path = './Pipette tests logs (1500 speed first measurement discarded)/2026-02-19 120507 SMT1 100%.txt'
-    path = './Pipette testing dispense position 19Feb26/2026-02-24 114639 SMT8 10%.txt'
+    path = './Clean data dispense position testing TOOL 1/Tool full logs/2026-02-19 120507 SMT1 100%.txt'
     sg = extract_sg_buffer(path)
     fig, ax = plt.subplots(1,1)
-    estimates = analyse_sg_buffer(sg, ax)
-
-    # Summarize estimates to means
-    mean = []
-    last_iteration = 0
-    sum1 = 0
-    cnt = 0
-    for i, (iteration, step) in enumerate(estimates[:,1:3]):
-        if iteration - last_iteration != 1:
-            if last_iteration != 10 or cnt != 10:
-                print(f'Incomplete series at {i}')
-            else:
-                mean.append(sum1//cnt)
-            sum1 = 0
-            cnt = 0
-        last_iteration = iteration
-        sum1 += step
-        cnt += 1
-    mean = np.array(mean)
-
-    # Convert to dispense positions
-    dispense_pos = (mean - 20) * 1000 * 0.01 / 2
+    estimates, means = analyse_sg_buffer(sg, ax)
 
     plt.show()
