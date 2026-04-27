@@ -102,7 +102,7 @@ def extract_sg_buffer(file_path):
         
     return np.array(results)
 
-def analyse_sg_buffer(sg, ax=None):
+def analyse_sg_buffer(sg, ax=None, moving_avg_window=None):
     loop_numbers = np.unique(sg[:,3])
 
     # Get sg values, estimates and means before and after
@@ -118,6 +118,9 @@ def analyse_sg_buffer(sg, ax=None):
                 color_idx = (color_idx + 1) % len(colors)
             if ax is not None:
                 ax.plot(sg_e[:,0], sg_e[:,1], '.-', color=color, alpha=0.2)
+                if moving_avg_window is not None:
+                    mavg = np.convolve(sg_e[:,1], np.ones(moving_avg_window) / moving_avg_window, mode='valid')
+                    ax.plot(sg_e[moving_avg_window-1:,0], mavg)
             estimate_idx = pressurePointFromBuffer(sg_e[:,1])
             sg_before = sg_e[:estimate_idx,1]
             sg_after  = sg_e[estimate_idx:,1]
@@ -161,7 +164,7 @@ def analyse_sg_buffer(sg, ax=None):
 
     # Add text
     ax.text(
-        0.75, 0.95, f"n: {len(loop_numbers)}\nmean: {np.mean(estimates[:,2]):.1f}\nmax-min: {est_max-est_min:.0f}",
+        0.01, 0.4, f"n: {len(loop_numbers)}\nmean: {np.mean(estimates[:,2]):.1f}\nmax-min: {est_max-est_min:.0f}",
         transform=ax.transAxes,
         fontsize=12,
         verticalalignment='top',
@@ -200,6 +203,10 @@ if __name__ == "__main__":
     folder = './Clean data dispense position testing TOOL 4/Tool full logs'
     data = analyse_folder(folder)
     
+    max_spread = 0
+    max_spread_at = None
+    min_spread = 100
+    min_spread_at = None
     fig, axs = plt.subplots(3,1, sharex=True)
     pos = 0
     for id in np.unique(data[:,0]):
@@ -212,6 +219,13 @@ if __name__ == "__main__":
                 print(f'id:{id:.0f}, vol:{vol:.0f}: does not have 10 loops: {num_estimates:.0f}')
             # print(id, vol , dvol[:,3])
             ax = axs[0]
+            spread = np.max(dvol[:,3])-np.min(dvol[:,3])
+            if spread > max_spread:
+                max_spread = spread
+                max_spread_at = (id, vol)
+            if spread < min_spread:
+                min_spread = spread
+                min_spread_at = (id, vol)
             ax.scatter([pos-0.2+i*0.2]*len(dvol), (dvol[:,3] - 20) * 1000 * 0.01 / 2, marker="o", s=40,
                        color=["#8B0000","#E53935","#FFB7BE"][i],
                        label=f"{vol:.0f}%",
@@ -232,6 +246,8 @@ if __name__ == "__main__":
                        color=["#43008B","#6135E5","#BBB7FF"][i],
                        edgecolor="black", alpha=0.8)
         pos += 1
+    print('max spread', max_spread, max_spread_at)
+    print('min spread', min_spread, min_spread_at)
 
     ax.set_xticks(range(pos))
     combined_labels = [
