@@ -37,7 +37,8 @@ def pressurePointFromBuffer(sg_buffer, window=40):
         sum2 -= sg_buffer[idx]
         sum2 += sg_buffer[idx+window]
         diff = sum1 - sum2 if sum1 > sum2 else -(sum2 - sum1)
-        if diff > max_diff:
+        # if diff > max_diff:
+        if diff > max_diff and len(sg_buffer) - idx < 160:
             max_diff = diff
             max_diff_idx = idx
     return max_diff_idx
@@ -194,13 +195,14 @@ def analyse_folder(folder_path):
         for loop in np.unique(est[:,0]):
             # print(id, vol, loop, est[est[:,0]==loop][:,2])
             d = est[est[:,0]==loop]
-            data.append([id, vol, loop] + [np.sum(d[:,2])//len(d)] + list(np.mean(d[:,3:], axis=0)))
+            # data.append([id, vol, loop] + [np.sum(d[:,2])//len(d)] + list(np.mean(d[:,3:], axis=0)))
+            data.append([id, vol, loop] + [np.median(d[:,2])] + list(np.mean(d[:,3:], axis=0)))
     data = np.array(data)
     return data
 
 
 if __name__ == "__main__":
-    folder = './Clean data dispense position testing TOOL 4/Tool full logs'
+    folder = './Clean data dispense position testing TOOL 3/Tool full logs'
     data = analyse_folder(folder)
     
     max_spread = 0
@@ -279,9 +281,14 @@ if __name__ == "__main__":
     # plt.show()
     # exit()
 
-    path = './Clean data dispense position testing TOOL 4/Tool full logs/2026-04-22 111403 SMT3_rack_0_volume100%.txt'
+    path = './Clean data dispense position testing TOOL 3/Tool full logs/2026-04-27 111111 SMT2_rack_0_volume10%.txt'
     sg = extract_sg_buffer(path)
     fig, ax = plt.subplots(1,1)
     estimates, means = analyse_sg_buffer(sg, ax)
+    wrong_estimates = []
+    for est in estimates:
+        if est[2] < 6000:
+            wrong_estimates.append(est)
+    print(len(wrong_estimates), len(estimates))
 
     plt.show()
