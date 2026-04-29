@@ -200,8 +200,54 @@ def analyse_folder(folder_path):
     data = np.array(data)
     return data
 
+def compare_tools(paths):
+    fig, axs = plt.subplots(2,1, sharex=True)
+    markers = ['o','s','v']
+    colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
+    color_idx = 0
+    for path in paths:
+        data = np.loadtxt(path, skiprows=1)
+        color = colors[color_idx]
+        color_idx = (color_idx + 1) % len(colors)
+        axs[0].plot([],[], '.', color=color, label=f"tool {path.split('/')[-2].split(' ')[-1]}")
+        for id in np.unique(data[:,0]):
+            d = data[data[:,0] == id]
+            for vol in np.sort(np.unique(d[:,1])):
+                i = 0 if vol == 100 else 1 if vol == 50 else 2
+                dvol = d[d[:,1] == vol]
+                axs[0].plot([id-0.2+i*0.2]*len(dvol), dvol[:,2], markers[i], color=color)
+                axs[1].plot([id-0.2+i*0.2]*len(dvol), dvol[:,3], markers[i], color=color)
+
+    axs[1].set_xticks(range(1,15))
+    combined_labels = [
+        f"SMT{id:.0f}\n{extra_labels.get(f'SMT{id:.0f}', '')}"
+        for id in range(1,15)
+    ]
+    axs[1].set_xticklabels(combined_labels)
+
+    for ax in axs:
+        ax.grid()
+
+    axs[0].set_title("Mean")
+    axs[0].set_ylabel("Position [µm]")
+    axs[1].set_title("Spread")
+    axs[1].set_ylabel("Max-Min [msteps]")
+
+    axs[0].legend(loc="upper right")
+
+    plt.tight_layout()
+    plt.show()
+
 
 if __name__ == "__main__":
+    folders = [
+        './Clean data dispense position testing TOOL 1',
+        './Clean data dispense position testing TOOL 3',
+        './Clean data dispense position testing TOOL 4'
+    ]
+    compare_tools([f'{f}/export_data.txt' for f in folders])
+    exit()
+
     folder = './Clean data dispense position testing TOOL 3/Tool full logs'
     data = analyse_folder(folder)
     
@@ -211,6 +257,7 @@ if __name__ == "__main__":
     min_spread_at = None
     fig, axs = plt.subplots(3,1, sharex=True)
     pos = 0
+    export_data = []
     for id in np.unique(data[:,0]):
         d = data[data[:,0] == id]
         for vol in np.sort(np.unique(d[:,1])):
@@ -228,6 +275,7 @@ if __name__ == "__main__":
             if spread < min_spread:
                 min_spread = spread
                 min_spread_at = (id, vol)
+            export_data.append([id,vol,np.mean(dvol[:,3]),spread])
             ax.scatter([pos-0.2+i*0.2]*len(dvol), (dvol[:,3] - 20) * 1000 * 0.01 / 2, marker="o", s=40,
                        color=["#8B0000","#E53935","#FFB7BE"][i],
                        label=f"{vol:.0f}%",
@@ -250,6 +298,7 @@ if __name__ == "__main__":
         pos += 1
     print('max spread', max_spread, max_spread_at)
     print('min spread', min_spread, min_spread_at)
+    np.savetxt('export_data.txt',np.array(export_data),fmt="%d %d %f %f",header="ID VOL mean spread")
 
     ax.set_xticks(range(pos))
     combined_labels = [
