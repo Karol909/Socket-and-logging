@@ -339,8 +339,10 @@ if __name__ == "__main__":
     measure_example = './MeasureFullStrokes/SMT10_100.txt'
     find_example = './Clean data dispense position testing TOOL 3/Tool full logs/2026-04-27 165357 SMT9_rack_5_volume100%.txt'
     rainin_example = './Rainin/rainin200_10%.txt'
-    folder = './Clean data dispense position testing TOOL 3/Tool full logs'
-    file = find_file(folder, "SMT4", '10%')
+    folder1 = './Clean data dispense position testing TOOL 1/Tool full logs'
+    folder3 = './Clean data dispense position testing TOOL 3/Tool full logs'
+    folder4 = './Clean data dispense position testing TOOL 4/Tool full logs'
+    file = find_file(folder3, "SMT4", '10%')
     
     # clean_log(find_example, find_example + ".clean")
     
@@ -350,24 +352,25 @@ if __name__ == "__main__":
     # print(sg_vals)
     fdata = get_data_from_file(file)
     # print(data[:,1].mean())
-    data = get_data_from_folder(folder)
+    data = get_data_from_folder(folder3)
     print(data['SMT4@10%']-fdata)
 
     smt = 'SMT4'
     file_num = 0
     moving_avg = 20
+    folder = folder1
     fig, axs = plt.subplots(3,1, sharex=True)
-    file = find_file(folder, smt, '100%', file_num)
+    file = find_file(folder1, smt, '100%', file_num)
     print(file)
     sg_buf, disp_pos = extract_sg_buffer(file)
     analyse_sg_buffer(sg_buf, disp_pos, axs[0], moving_avg)
     # axs[0].set_title("100%")
-    file = find_file(folder, smt, '50%', file_num)
+    file = find_file(folder3, smt, '100%', file_num)
     print(file)
     sg_buf, disp_pos = extract_sg_buffer(file)
     analyse_sg_buffer(sg_buf, disp_pos, axs[1], moving_avg)
     # axs[1].set_title("50%")
-    file = find_file(folder, smt, '10%', file_num)
+    file = find_file(folder4, smt, '100%', file_num)
     print(file)
     sg_buf, disp_pos = extract_sg_buffer(file)
     analyse_sg_buffer(sg_buf, disp_pos, axs[2], moving_avg)
